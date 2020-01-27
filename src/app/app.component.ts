@@ -12,12 +12,16 @@ import { PokemonService } from './shared/services/pokemon.service';
 })
 export class AppComponent implements OnInit {
   pokemon$: Observable<Pokemon[]>;
+  pokemonDetail$: Observable<any>;
 
   constructor(private pokemonService: PokemonService) {}
 
   ngOnInit() {
     this.pokemon$ = this.pokemonService.getAllPoke();
   }
+
+  getPokemon(id: number) {
+ }
 
   // Land toevoegen --> doorgeven aan de service
   AddPoke (pokemonName: string, pokemonSprite: string, pokemonTypes: string) {
