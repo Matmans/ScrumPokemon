@@ -10,9 +10,9 @@ import { PokemonService } from './shared/services/pokemon.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-
 export class AppComponent implements OnInit {
   pokemon$: Observable<Pokemon[]>;
+  pokemonDetail$: Observable<any>;
 
   constructor(private pokemonService: PokemonService) {}
 
@@ -20,10 +20,13 @@ export class AppComponent implements OnInit {
     this.pokemon$ = this.pokemonService.getAllPoke();
   }
 
+  getPokemon(id: number) {
+  }
+
   // Land toevoegen --> doorgeven aan de service
-  AddFaviePoke (pokemonName: string, pokemonSprite: string, pokemonTypes: string) {
+  AddFaviPoke (pokemonName: string, pokemonSprite: string, pokemonTypes: string) {
     // id === null, omdat deze auto wordt ingevuld door de json server
-    const newPokemon = new Pokemon(null, pokemonName, pokemonSprite);
+    const newPokemon = new Pokemon(null, pokemonName, pokemonSprite, pokemonTypes);
     this.pokemonService.addFaviePoke(newPokemon)
       .subscribe ((addedPokemon: Pokemon) => {}); 
   }

@@ -8,16 +8,22 @@ import { map, tap } from 'rxjs/Operators';
   providedIn: 'root'
 })
 export class PokemonService {
-  url: string =  "https://pokeapi.co/api/v2/pokemon"
+  url: string = "https://pokeapi.co/api/v2/pokemon/?limit=0&offset=0";
+  url2: string =  "https://pokeapi.co/api/v2/pokemon"
+  id: number;
 
   constructor(private http: HttpClient) { }
 
   getAllPoke(): Observable<Pokemon[]> {
-    for (let i = 1; i < 807 ; i++) {
+    {
       return this.http
-        .get<Pokemon[]>(`${this.url}/${i}`)
-        .pipe(map(res => res['']));
+        .get<Pokemon[]>(this.url)
+        .pipe(tap(result => console.log("via json-server: ", result)));
     }
+  }
+
+  getPokemon(id: number) {
+    return this.http.get<Pokemon>(`${this.url}/${id}`);
   }
 
   addFaviePoke(newPokemon: Pokemon): Observable<any> {
