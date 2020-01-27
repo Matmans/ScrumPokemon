@@ -1,8 +1,9 @@
+import { identifierModuleUrl } from '@angular/compiler';
+
 export class Pokemon {
     constructor (
         public id: number,
-        public naam: string,
-        public sprites: string,
-        public types: string,
+        public name: string,
+        public type: string
     ) {}
 }

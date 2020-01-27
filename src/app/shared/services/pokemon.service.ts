@@ -8,34 +8,28 @@ import { map, tap } from 'rxjs/Operators';
   providedIn: 'root'
 })
 export class PokemonService {
-  url: string = "https://pokeapi.co/api/v2/pokemon/?limit=0&offset=0";
-  url2: string =  "https://pokeapi.co/api/v2/pokemon"
-  id: number;
+  urllocal = "http://localhost:3000/faviePokemon";
+  url: string =  "https://pokeapi.co/api/v2/pokemon"
 
   constructor(private http: HttpClient) { }
 
-  getAllPoke(): Observable<Pokemon[]> {
-    {
-      return this.http
-        .get<Pokemon[]>(this.url)
-        .pipe(tap(result => console.log("via json-server: ", result)));
-    }
+  getPokemon(): Observable<Pokemon[]> {
+    return this.http
+      .get<Pokemon[]>(this.urllocal)
+      .pipe(tap(result => console.log("via json-server: ", result)));
   }
 
-  getPokemon(id: number) {
-    return this.http.get<Pokemon>(`${this.url}/${id}`);
+  getPokeApi(): Observable<Pokemon[]> {
+    return this.http.get<Pokemon[]>(this.url).pipe(map(res => res["results"]));
   }
 
-  addFaviePoke(newPokemon: Pokemon): Observable<any> {
+  addFavie(value): Observable<any[]> {
     const headers = new HttpHeaders().set("Content-type", "application/json");
-    return this.http.post(this.url, newPokemon, { headers: headers });
+    return this.http.get<any[]>(value).pipe();
   }
 
-  getFaviePoke(): Observable<any>{
-    return
-  }
-
-  deleleteFaviePoke(): Observable<any>{
-    return
+  addFavieJSON(value): Observable<any> {
+    const headers = new HttpHeaders().set("Content-type", "application/json");
+    return this.http.post(this.urllocal, value, { headers: headers });
   }
 }

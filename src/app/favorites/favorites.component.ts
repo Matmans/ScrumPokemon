@@ -11,11 +11,12 @@ import { PokemonService } from '../shared/services/pokemon.service';
   styleUrls: ['./favorites.component.css']
 })
 export class FavoritesComponent implements OnInit {
-  pokemon$: Observable<Pokemon[]>;
+  public pokemon$: Observable<Pokemon[]>;
 
-  constructor(private pokemonService: PokemonService) { }
+  constructor(private pokemonService : PokemonService) { }
 
   ngOnInit() {
-    this.pokemon$ = this.pokemonService.getFaviePoke();
+    this.pokemon$ = this.pokemonService.getPokemon();
+   // check // this.pokemon$.subscribe(res => {console.log(res)});
   }
 }

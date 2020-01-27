@@ -1,17 +1,27 @@
 
-    <div *ngFor="let poke of pokemon$ | async" class="card hover">
-        <div class="card-img" style="background-image:url">
-            <div class="overlay">
-                <div class="overlay-content">
-                    <a class="hover" href="#!" (click)="addFaviePoke(poke.id)">Add to Favies!</a>
-                </div>
+<!-- <div *ngFor="let poke of pokemon$ | async" class="card hover">
+    <div class="card-img">
+        <div class="overlay">
+            <div class="overlay-content">
+                <a class="hover" (click)="addFavie(pokemon.name)">Add to Favies!</a>                
             </div>
         </div>
-        
-        <div class="card-content">
-            <a href="#!">
-                <h2>{{poke.name}}</h2>
-                <p>{{poke.types}}</p>
-            </a>
-        </div>
-    </div>  
+    </div>      
+    <div class="card-content">
+        <p>{{pokemon.id}}</p>
+        <p>{{pokemon.name}}<p>
+    </div>
+</div>  -->
+
+<div *ngFor="let pokemon of pokemon$ | async" class="card" style="width: 18rem;">
+    <img class="card-img-top" [src]="PokemonPhoto" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{pokemon.id}}</h5>
+      <p class="card-text">{{pokemon.name}}</p>
+      <a href="#" (click)="addFavie(pokemon.name)" class="btn btn-primary">Add to favies</a>
+    </div>
+  </div>
+<!-- 
+    <li *ngFor="let pokemon of pokemon$ | async" (click)="addFavie(pokemon)">
+        {{pokemon.id}} {{pokemon.name}}
+    </li> -->
