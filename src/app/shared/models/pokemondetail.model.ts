@@ -1,4 +1,4 @@
-export class Pokemon {
+export class PokemonDetail {
     constructor (
         public id: number,
         public name: string,
