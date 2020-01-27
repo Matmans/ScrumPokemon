@@ -21,14 +21,13 @@ export class AppComponent implements OnInit {
   }
 
   getPokemon(id: number) {
- }
+  }
 
   // Land toevoegen --> doorgeven aan de service
-  AddPoke (pokemonName: string, pokemonSprite: string, pokemonTypes: string) {
+  AddFaviPoke (pokemonName: string, pokemonSprite: string, pokemonTypes: string) {
     // id === null, omdat deze auto wordt ingevuld door de json server
     const newPokemon = new Pokemon(null, pokemonName, pokemonSprite, pokemonTypes);
     this.pokemonService.addFaviePoke(newPokemon)
       .subscribe ((addedPokemon: Pokemon) => {}); 
-    }
-
+  }
 }
