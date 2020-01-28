@@ -17,19 +17,9 @@ export class HomeComponent implements OnInit {
 
   PokemonPhoto: string = `https://img.pokemondb.net/artwork/`;
   end: string = `.jpg`;
-  
 
   addFavie(value) {
-    console.log(value.url);
-    this.pokemonDetail$ = this.pokemonService.addFavie(value.url);
-    this.pokemonDetail$.subscribe(res => { console.log(res) });
-    this.addFavieDetail(this.pokemonDetail$);
-  }
-
-  addFavieDetail(faviedetails) {
-    // id === null, omdat deze auto wordt ingevuld door de json server
-    console.log(faviedetails);
-    const newPokiesJSON = new Pokemon(null, faviedetails.name, faviedetails.type);
+    const newPokiesJSON = new Pokemon(null, value);
     this.pokemonService.addFavieJSON(newPokiesJSON)
       .subscribe((addedPokemon) => {
         // pokemons opnieuw ophalen in de subscription

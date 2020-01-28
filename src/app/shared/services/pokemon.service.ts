@@ -28,8 +28,8 @@ export class PokemonService {
     return this.http.get<any[]>(value).pipe();
   }
 
-  addFavieJSON(value): Observable<any> {
+  removieFavie(value): Observable<any[]> {
     const headers = new HttpHeaders().set("Content-type", "application/json");
-    return this.http.post(this.urllocal, value, { headers: headers });
+    return this.http.get<any[]>(value).pipe();
   }
 }

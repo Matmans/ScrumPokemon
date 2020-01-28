@@ -1,7 +1,28 @@
 {
-    "pokemon": [
-        {
-            
-        }
-    ]
+  "faviePokemon": [
+    {
+      "id": 1,
+      "name": "decidueye"
+    },
+    {
+      "id": 2,
+      "name": "marowak-alolan"
+    },
+    {
+      "id": 3,
+      "name": "dusknoir"
+    },
+    {
+      "id": 4,
+      "name": "rotom-heat"
+    },
+    {
+      "id": 5,
+      "name": "cofagrigus"
+    },
+    {
+      "id": 6,
+      "name": "giratina-origin"
+    }
+  ]
 }
