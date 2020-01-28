@@ -9,7 +9,7 @@ import { map, tap } from 'rxjs/Operators';
 })
 export class PokemonService {
   urllocal = "http://localhost:3000/faviePokemon";
-  url: string =  "https://pokeapi.co/api/v2/pokemon"
+  url: string =  "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=807"
 
   constructor(private http: HttpClient) { }
 

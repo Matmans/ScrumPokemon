@@ -15,7 +15,8 @@ export class HomeComponent implements OnInit {
 
   constructor(private pokemonService: PokemonService) { }
 
-  PokemonPhoto: string = '';
+  PokemonPhoto: string = `https://img.pokemondb.net/artwork/`;
+  end: string = `.jpg`;
   
 
   addFavie(value) {
@@ -39,8 +40,6 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.pokemon$ = this.pokemonService.getPokeApi();
     this.pokemon$.subscribe(res => { console.log(res) });
-
-    this.PokemonPhoto = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/`;
   }
 
 }

@@ -12,6 +12,11 @@ body {
 	background: #f9f9fb;
 }
 
+img {
+	width: 150px;
+	height: 150px;
+}
+
 .card {
 	width: 300px;
 	display: inline-block;
