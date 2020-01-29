@@ -1,7 +1,7 @@
 <div *ngFor="let pokemon of pokemon$ | async" class="card" style="width: 18rem;">
     <img class="card-img-top" [src]="PokemonPhoto + pokemon.name + end" alt="Card image cap">
-    <div class="card-body">
+    <div class="card-body text-center">
       <h2 class="card-text">{{pokemon.name}}</h2>
-      <a href="" (click)="addFavie(pokemon.name)" class="btn btn-primary">Add to favies</a>
+      <a href="" (click)="addFavie(pokemon.name)" class="btn btn-warning">Add to favies!</a>
     </div>
   </div>
