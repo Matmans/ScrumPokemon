@@ -20,7 +20,7 @@
                     <label for="first_name">First Name *</label>
                 </td>
                 <td valign="top">
-                    <input type="text" name="first_name" maxlength="50" size="30">
+                    <input type="text" name="first_name" maxlength="50" size="30" #firstName>
                 </td>
             </tr>
             <tr>
@@ -28,7 +28,7 @@
                     <label for="last_name">Last Name *</label>
                 </td>
                 <td valign="top">
-                    <input type="text" name="last_name" maxlength="50" size="30">
+                    <input type="text" name="last_name" maxlength="50" size="30" #lastName>
                 </td>
             </tr>
             <tr>
@@ -36,7 +36,7 @@
                     <label for="email">Email Address *</label>
                 </td>
                 <td valign="top">
-                    <input type="text" name="email" maxlength="80" size="30">
+                    <input type="text" name="email" maxlength="80" size="30" #email>
                 </td>
             </tr>
             <tr>
@@ -44,12 +44,12 @@
                     <label for="comments">Comments *</label>
                 </td>
                 <td valign="top">
-                    <textarea name="comments" maxlength="1000" cols="25" rows="6"></textarea>
+                    <textarea name="comments" maxlength="1000" cols="25" rows="6" #comment></textarea>
                 </td>
             </tr>
             <tr>
                 <td colspan="2" style="text-align:center">
-                    <button type="button" class="btn btn-warning btn-lg">Submit</button>
+                    <button type="button" class="btn btn-warning btn-lg" (click)="submitForm(firstName.value, lastname.value, email.value, comment.value)">Submit</button>
                 </td>
             </tr>
         </table>
