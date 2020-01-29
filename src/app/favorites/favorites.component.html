@@ -1,4 +1,5 @@
-<h3>My favies</h3>
+<div class="container-fluid">
+<h3 class="text-center mt-2">My favies</h3>
 
 <div *ngFor="let pokemon of pokemon$ | async" class="card" style="width: 18rem;">
     <img class="card-img-top" [src]="PokemonPhoto + pokemon.name + end" alt="Card image cap">
@@ -7,3 +8,4 @@
       <a href="" (click)="removeFavie(pokemon.id)" class="btn btn-primary">Remove from favies</a>
     </div>
   </div>
+</div>
