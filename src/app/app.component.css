@@ -1,13 +1,39 @@
-div {
-    background-color: #0f0f0f;
-    color: #f1f1f1;
-}
-
-body {
-    background-color: #0f0f0f;
-}
+@import url('https://fonts.googleapis.com/css?family=Bangers&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Nobile&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Arsenal&display=swap');
 
 #top {
-    background: rgb(2,0,36);
-    background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+    background: #020024;
+    font-family: 'Bangers', cursive;
+    color: #fffb00;
+    border-bottom: 5px solid red;
+    padding-bottom: 1em;
+}
+
+h1{
+    font-size: 150px;
+    text-shadow: -1px 0 #ff0000, 0 10px red, 1px 0 red, 0 -1px red;
+}
+
+
+#v-pills-tab {
+  position: fixed;
+  width: 25%;
+}
+
+.nav-link{
+    background-color: gold;
+    margin-bottom: 5px;
+    color: red;
+    font-family: 'Nobile', sans-serif;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.nav-link:hover{
+    background-color: rgba(255, 217, 0, 0.575);
+}
+
+.container-fluid{
+    background-color: #FBFBF2;
 }

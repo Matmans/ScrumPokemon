@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
 
   addFavie(value) {
     const newPokiesJSON = new Pokemon(null, value);
-    this.pokemonService.addFavieJSON(newPokiesJSON)
+    this.pokemonService.addFavie(newPokiesJSON)
       .subscribe((addedPokemon) => {
         // pokemons opnieuw ophalen in de subscription
         this.pokemon$ = this.pokemonService.getPokemon();
