@@ -1,5 +1,5 @@
-<div class="container-fluid">
-<h3 class="text-center mt-2">My favies</h3>
+<!-- <div class="container-fluid">
+
 
 <div *ngFor="let pokemon of pokemon$ | async" class="card" style="width: 18rem;">
     <img class="card-img-top" [src]="PokemonPhoto + pokemon.name + end" alt="Card image cap">
@@ -8,4 +8,40 @@
       <a href="" (click)="removeFavieJSON(pokemon.id)" class="btn btn-danger">Remove from favies</a>
     </div>
   </div>
-</div>
+</div> -->
+<h3 class="text-center mt-2">My favies</h3>
+
+<span *ngFor="let pokemon of pokemon$ | async">
+  <div *ngIf="pokemon.name == 'nidoran-m'" class="card" style="width: 18rem;">
+    <img class="card-img-top" [src]="PokemonPhoto + 'nidoranm' + end" alt="Card image cap">
+    <div class="card-body text-center">
+      <h2 class="card-text">{{pokemon.name}}</h2>
+      <a (click)="removeFavieJSON(pokemon.id)" class="btn btn-danger">Remove from favies</a>
+
+      <a (click)="showDetails(pokemon.name)" class="btn btn-light">Toon shiny</a>
+
+      <div *ngIf="check && currentPokemon == pokemon.name">
+        <div *ngIf="(pokemon$ | async) as detail">
+          <img [src]="PokemonPhotoShiny + 'nidoranm' + end">
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div *ngIf="pokemon.name !== 'nidoran-m'" class="card" style="width: 18rem;">
+    <img class="card-img-top" [src]="PokemonPhoto + pokemon.name + end" alt="Card image cap">
+    <div class="card-body text-center">
+      <h2 class="card-text">{{pokemon.name}}</h2>
+      <a (click)="removeFavieJSON(pokemon.id)" class="btn btn-danger">Remove from favies!</a>
+
+      <a (click)="showDetails(pokemon.name)" class="btn btn-light">Toon shiny</a>
+
+      <div *ngIf="check && currentPokemon == pokemon.name">
+        <div *ngIf="(pokemon$ | async) as detail">
+          <img [src]="PokemonPhotoShiny + pokemon.name + end">
+        </div>
+      </div>
+
+    </div>
+  </div>
+</span>

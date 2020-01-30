@@ -14,14 +14,23 @@ export class FavoritesComponent implements OnInit {
 
   public pokemon$: Observable<Pokemon[]>;
 
-  PokemonPhoto: string = `https://img.pokemondb.net/artwork/`;
-  end: string = `.jpg`;
+  PokemonPhoto: string = `https://play.pokemonshowdown.com/sprites/ani/`;
+  PokemonPhotoShiny: string = `https://play.pokemonshowdown.com/sprites/ani-shiny/`;
+  end: string = `.gif`;
+
+  check: boolean;
+  currentPokemon: string;
 
   constructor(private pokemonService : PokemonService) { }
 
   ngOnInit() {
     this.pokemon$ = this.pokemonService.getPokemon();
     this.pokemon$.subscribe(res => {console.log(res)});
+  }
+
+  showDetails(pokemonName: string) {
+    this.check = !this.check;
+    this.currentPokemon = pokemonName;
   }
 
   removeFavieJSON(value: number) {       

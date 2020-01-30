@@ -11,37 +11,37 @@ import { Observable } from 'rxjs';
 export class HomeComponent implements OnInit {
 
   public pokemon$: Observable<Pokemon[]>;
+  public pokemonFavies$: Observable<Pokemon[]>;
+
+  zesFavies: boolean = false;
 
   constructor(private pokemonService: PokemonService) { }
 
   PokemonPhoto: string = `https://play.pokemonshowdown.com/sprites/ani/`;
   end: string = `.gif`;
-  
-  nidoranm: string = "nidoran-m";
-  nidoranm2: string = "nidoranm";
+
+  check: boolean;
+  currentPokemon: string;
 
   addFavie(value) {
     const newPokiesJSON = new Pokemon(null, value);
-    this.pokemonService.addFavie(newPokiesJSON)
+    this.pokemonService.addFavieJSON(newPokiesJSON)
       .subscribe((addedPokemon) => {
         // pokemons opnieuw ophalen in de subscription
         this.pokemon$ = this.pokemonService.getPokemon();
       });
   }
 
-  checkup(pokemon) {
-    for (let i = 1; i < pokemon.length ; i++) {
-      if (pokemon[i].name == "nidoran-m") {
-        pokemon[i].name = "nidoranm";
-      }
-    }
+  showDetails(pokemonName: string) {
+    this.check = !this.check;
+    this.currentPokemon = pokemonName;
   }
 
   ngOnInit() {
     this.pokemon$ = this.pokemonService.getPokeApi();
-    this.pokemon$.subscribe(res => { console.log(res) });
+    this.pokemonFavies$ = this.pokemonService.getPokemon();
 
-    this.checkup(this.pokemon$);
+    this.pokemon$.subscribe(res => { console.log(res) });
   }
 
 }
