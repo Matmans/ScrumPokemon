@@ -1,7 +1,16 @@
-<div *ngFor="let pokemon of pokemon$ | async" class="card" style="width: 18rem;">
-    <img class="card-img-top" [src]="PokemonPhoto + pokemon.name + end" alt="Card image cap">
+<span *ngFor="let pokemon of pokemon$ | async">
+  <div *ngIf="pokemon.name == 'nidoran-m'" class="card" style="width: 18rem;">
+    <img class="card-img-top" [src]="PokemonPhoto + 'nidoranm' + end" alt="Card image cap">
     <div class="card-body">
-      <h2 class="card-text">{{pokemon.name}}</h2>
+      <h4 class="card-text">{{pokemon.name}}</h4>
       <a href="" (click)="addFavie(pokemon.name)" class="btn btn-primary">Add to favies</a>
     </div>
   </div>
+  <div *ngIf="pokemon.name !== 'nidoran-m'" class="card" style="width: 18rem;">
+    <img class="card-img-top" [src]="PokemonPhoto + pokemon.name + end" alt="Card image cap">
+    <div class="card-body">
+      <h4 class="card-text">{{pokemon.name}}</h4>
+      <a href="" (click)="addFavie(pokemon.name)" class="btn btn-primary">Add to favies</a>
+    </div>
+  </div>
+</span>

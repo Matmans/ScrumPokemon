@@ -11,12 +11,14 @@ import { Observable } from 'rxjs';
 export class HomeComponent implements OnInit {
 
   public pokemon$: Observable<Pokemon[]>;
-  public pokemonDetail$: Observable<any[]>;
 
   constructor(private pokemonService: PokemonService) { }
 
-  PokemonPhoto: string = `https://img.pokemondb.net/artwork/`;
-  end: string = `.jpg`;
+  PokemonPhoto: string = `https://play.pokemonshowdown.com/sprites/ani/`;
+  end: string = `.gif`;
+  
+  nidoranm: string = "nidoran-m";
+  nidoranm2: string = "nidoranm";
 
   addFavie(value) {
     const newPokiesJSON = new Pokemon(null, value);
@@ -27,9 +29,19 @@ export class HomeComponent implements OnInit {
       });
   }
 
+  checkup(pokemon) {
+    for (let i = 1; i < pokemon.length ; i++) {
+      if (pokemon[i].name == "nidoran-m") {
+        pokemon[i].name = "nidoranm";
+      }
+    }
+  }
+
   ngOnInit() {
     this.pokemon$ = this.pokemonService.getPokeApi();
     this.pokemon$.subscribe(res => { console.log(res) });
+
+    this.checkup(this.pokemon$);
   }
 
 }

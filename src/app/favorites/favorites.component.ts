@@ -11,6 +11,7 @@ import { PokemonService } from '../shared/services/pokemon.service';
   styleUrls: ['./favorites.component.css']
 })
 export class FavoritesComponent implements OnInit {
+
   public pokemon$: Observable<Pokemon[]>;
 
   PokemonPhoto: string = `https://img.pokemondb.net/artwork/`;
@@ -18,17 +19,13 @@ export class FavoritesComponent implements OnInit {
 
   constructor(private pokemonService : PokemonService) { }
 
-  removeFavie(value) {
-    const newPokiesJSON = new Pokemon(null, value);
-    this.pokemonService.addFavieJSON(newPokiesJSON)
-      .subscribe((addedPokemon) => {
-        // pokemons opnieuw ophalen in de subscription
-        this.pokemon$ = this.pokemonService.getPokemon();
-      });
-  }
-
   ngOnInit() {
     this.pokemon$ = this.pokemonService.getPokemon();
-   // check // this.pokemon$.subscribe(res => {console.log(res)});
+    this.pokemon$.subscribe(res => {console.log(res)});
+  }
+
+  removeFavieJSON(value: number) {       
+    console.log("Try to remove from favies", value);
+    this.pokemonService.removeFavie(value).subscribe(res => console.log)
   }
 }
