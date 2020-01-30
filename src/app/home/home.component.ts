@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Pokemon } from '../shared/models/pokemon.model';
 import { PokemonService } from '../shared/services/pokemon.service';
 import { Observable } from 'rxjs';
+import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 
 @Component({
   selector: 'app-home',
@@ -11,6 +12,7 @@ import { Observable } from 'rxjs';
 export class HomeComponent implements OnInit {
 
   public pokemon$: Observable<Pokemon[]>;
+  public pokemonDetail$: Observable<Pokemon[]>;
   public pokemonFavies$: Observable<Pokemon[]>;
 
   zesFavies: boolean = false;
@@ -23,18 +25,35 @@ export class HomeComponent implements OnInit {
   check: boolean;
   currentPokemon: string;
 
+  faviesPokemon: number;
+
   addFavie(value) {
-    const newPokiesJSON = new Pokemon(null, value);
-    this.pokemonService.addFavieJSON(newPokiesJSON)
-      .subscribe((addedPokemon) => {
-        // pokemons opnieuw ophalen in de subscription
-        this.pokemon$ = this.pokemonService.getPokemon();
-      });
+    this.faviesPokemon = Object.keys(this.pokemonFavies$).length;
+
+    if (this.faviesPokemon = 6)
+    {
+      console.log("je hebt al 6 favies");
+
+      alert("You already have 6 favies");
+    }
+    else {
+      const newPokiesJSON = new Pokemon(null, value, null, null, null, null, null);
+      this.pokemonService.addFavieJSON(newPokiesJSON)
+        .subscribe((addedPokemon) => {
+          // pokemons opnieuw ophalen in de subscription
+          this.pokemon$ = this.pokemonService.getPokemon();
+        });
+    }
   }
 
-  showDetails(pokemonName: string) {
+  getDetail(url: string, name: string) {
+    console.log(this.check);
+    console.log(url);
+
     this.check = !this.check;
-    this.currentPokemon = pokemonName;
+
+    this.currentPokemon = name;
+    this.pokemonDetail$ = this.pokemonService.getDetail(url);
   }
 
   ngOnInit() {

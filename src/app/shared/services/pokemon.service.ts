@@ -19,6 +19,12 @@ export class PokemonService {
       .pipe(tap(result => console.log("via json-server: ", result)));
   }
 
+  getDetail(keyword): Observable<Pokemon[]> {
+    return this.http
+      .get<Pokemon[]>(keyword)
+      .pipe();
+  }
+
   getPokeApi(): Observable<Pokemon[]> {
     return this.http.get<Pokemon[]>(this.url).pipe(map(res => res["results"]));
   }

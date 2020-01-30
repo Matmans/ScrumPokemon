@@ -19,6 +19,15 @@
     {
       "id": 6,
       "name": "giratina-origin"
+    },
+    {
+      "id": 7,
+      "name": "bulbasaur",
+      "url": null,
+      "types": null,
+      "weight": null,
+      "height": null,
+      "base_experience": null
     }
   ]
 }
