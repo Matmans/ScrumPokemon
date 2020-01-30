@@ -2,27 +2,43 @@
   "faviePokemon": [
     {
       "id": 1,
-      "name": "decidueye"
+      "name": "decidueye",
+      "url": null,
+      "types": null,
+      "weight": null,
+      "height": null,
+      "base_experience": null
     },
     {
       "id": 2,
-      "name": "marowak-alola"
+      "name": "marowak-alola",
+      "url": null,
+      "types": null,
+      "weight": null,
+      "height": null,
+      "base_experience": null
+    },
+    {
+      "id": 3,
+      "name": "palossand",
+      "url": null,
+      "types": null,
+      "weight": null,
+      "height": null,
+      "base_experience": null
     },
     {
       "id": 4,
-      "name": "palossand"
+      "name": "cofagrigus",
+      "url": null,
+      "types": null,
+      "weight": null,
+      "height": null,
+      "base_experience": null
     },
     {
       "id": 5,
-      "name": "cofagrigus"
-    },
-    {
-      "id": 6,
-      "name": "giratina-origin"
-    },
-    {
-      "id": 7,
-      "name": "bulbasaur",
+      "name": "giratina-origin",
       "url": null,
       "types": null,
       "weight": null,

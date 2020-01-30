@@ -33,6 +33,11 @@ h2{
 	color: gold;
 }
 
+h3 {
+	font-family: 'Bangers', sans-serif;
+	color: red;
+}
+
 .btn{
 	color: red;
 	font-weight: 600;

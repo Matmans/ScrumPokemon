@@ -28,12 +28,12 @@ export class HomeComponent implements OnInit {
   faviesPokemon: number;
 
   addFavie(value) {
-    this.faviesPokemon = Object.keys(this.pokemonFavies$).length;
+    this.faviesPokemon = Object.values(this.pokemonFavies$).length;
 
-    if (this.faviesPokemon = 6)
+    console.log(this.faviesPokemon);
+
+    if (this.faviesPokemon > 5)
     {
-      console.log("je hebt al 6 favies");
-
       alert("You already have 6 favies");
     }
     else {

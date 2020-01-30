@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Pokemon } from '../shared/models/pokemon.model';
 import { HttpClient } from '@angular/common/http';
-import { tap} from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { tap, count} from 'rxjs/operators';
+import { Observable, observable } from 'rxjs';
 import { PokemonService } from '../shared/services/pokemon.service';
+import { prototype } from 'events';
 
 @Component({
   selector: 'app-favorites',
@@ -13,6 +14,10 @@ import { PokemonService } from '../shared/services/pokemon.service';
 export class FavoritesComponent implements OnInit {
 
   public pokemon$: Observable<Pokemon[]>;
+
+  public pokemonFavie$ = [];
+
+  faviesPokemon: number;
 
   PokemonPhoto: string = `https://play.pokemonshowdown.com/sprites/ani/`;
   PokemonPhotoShiny: string = `https://play.pokemonshowdown.com/sprites/ani-shiny/`;
@@ -26,6 +31,12 @@ export class FavoritesComponent implements OnInit {
   ngOnInit() {
     this.pokemon$ = this.pokemonService.getPokemon();
     this.pokemon$.subscribe(res => {console.log(res)});
+
+    console.log(this.pokemon$);
+
+    this.faviesPokemon = Object.keys(this.pokemon$).length;
+
+    console.log(this.faviesPokemon);
   }
 
   showDetails(pokemonName: string) {
